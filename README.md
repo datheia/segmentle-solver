@@ -1,3 +1,6 @@
+# The Game
+Based on the [game](https://segmentle.com/). Each column should add up to the desired target number. That's all there is to it.
+
 # Rearrange Grid to Match Column Sum Target
 This repository contains Python code for the solve_grid() function which rearranges the numbers in a 2D grid. The primary objective of this function is to ensure the sum of numbers in each column equals a predefined target number.
 
