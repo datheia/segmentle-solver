@@ -1,16 +1,11 @@
-import itertools
 import numpy as np
+from itertools import permutations
 
-def solve_grid(input_grid, target):
-    flat_list = [item for sublist in input_grid for item in sublist]
-    all_perms = list(itertools.permutations(flat_list, len(flat_list)))
-    for perm in all_perms:
-        grid = np.array(perm).reshape(-1, len(input_grid[0])).tolist()
-        if all(sum(column) == target for column in zip(*grid)):
-            return grid
-    return False
+g = np.array([[7, 5, 8], [3, 13, 9], [5, 8, 2]])
+t = 20
 
-grid = [[7, 2, 6], [5, 4, 12], [15, 14, 7]]
-target = 24
-
-print(solve_grid(grid, target))
+for p in permutations(g.flatten()):
+    g_ = np.array(p).reshape(g.shape)
+    if (g_.sum(axis=0) == t).all():
+        print('\n'.join(['\t'.join(map(str, r)) for r in g_.tolist()]))
+        break
